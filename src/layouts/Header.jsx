@@ -1,13 +1,21 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+ 
 
 const navigation = [
   { name: 'صفحه اصلی', href: '#' },
   { name: 'مقالات', href: '#' },
   { name: 'درباره ما', href: '#' },
 ]
+
+const classLink = ({ isActive, isPending }) =>
+isActive
+  ? "text-sm font-semibold leading-6 text-white bg-blue-500 py-1 px-2 rounded-lg"
+  : isPending
+  ? "pending"
+  : "text-sm font-semibold leading-6 text-white py-1 px-2"
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -32,9 +40,12 @@ export default function Example() {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-            <Link to={`/`} className="text-sm font-semibold leading-6 text-white">صفحه اصلی</Link>
-            <Link to={`/posts`} className="text-sm font-semibold leading-6 text-white">مقالات</Link>
-            <Link to={`/contact-us`} className="text-sm font-semibold leading-6 text-white">درباره ما</Link>
+            <NavLink to={`/`} 
+              className={classLink}
+              >صفحه اصلی
+              </NavLink>
+            <NavLink to={`/posts`} className={classLink}>مقالات</NavLink>
+            <NavLink to={`/about-us`} className={classLink}>درباره ما</NavLink>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
         </div>

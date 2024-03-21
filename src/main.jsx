@@ -8,7 +8,7 @@ import './index.css'
 import ErrorPage from './components/ErrorPage';
 import App from './layouts/App';
 
-import ContactUs from './components/ContactUs';
+import AboutUs from './components/AboutUs';
 import Posts from './components/Posts';
 import Post from './components/Post';
 import Home from './components/Home';
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "contact-us/",
-        element: <ContactUs />,
+        path: "about-us/",
+        element: <AboutUs />,
       },
       {
         path: "posts/",

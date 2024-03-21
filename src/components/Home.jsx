@@ -22,7 +22,6 @@ const posts = [
     {
       id: 1,
       title: 'Boost your conversion rate',
-      href: 'posts/1',
       description:
         'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
       imageUrl:
@@ -88,11 +87,13 @@ export default function Home() {
             {posts.map((post) => (
               <article key={post.id} className="flex flex-col items-start justify-between">
                 <div className="relative w-full">
+                <Link to={`/posts/`+post.id} className="font-semibold leading-6">
                   <img
                     src={post.imageUrl}
                     alt=""
                     className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                   />
+                  </Link>
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
                 <div className="max-w-xl">
@@ -109,12 +110,10 @@ export default function Home() {
                   </div>
                   <div className="group relative">
                     <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                      <a href={post.href}>
-                        <span className="absolute inset-0" />
-                        {post.title}
-                      </a>
+                    <Link to={`/posts/`+post.id} className="font-semibold leading-6">
+                        {post.title}    
+                    </Link> 
                     </h3>
-                    <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.description}</p>
                   </div>
                 </div>
               </article>
