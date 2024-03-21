@@ -5,20 +5,31 @@ import {
   RouterProvider,
 } from "react-router-dom"
 import './index.css'
-import Root from './routes/root';
-import ErrorPage from './error-page';
-import Contact from './routes/contact';
-import Post from './routes/post';
+import ErrorPage from './components/ErrorPage';
+import App from './layouts/App';
+
+import ContactUs from './components/ContactUs';
+import Posts from './components/Posts';
+import Post from './components/Post';
+import Home from './components/Home';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "contacts/:contactId",
-        element: <Contact />,
+        path: "/",
+        Component: Home,
+      },
+      {
+        path: "contact-us/",
+        element: <ContactUs />,
+      },
+      {
+        path: "posts/",
+        element: <Posts />,
       },
       {
         path: "posts/:postId",
@@ -31,6 +42,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    
     <RouterProvider router={router} />
+    
   </React.StrictMode>
 )
