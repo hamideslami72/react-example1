@@ -1,15 +1,5 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Menu, Transition } from '@headlessui/react'
-import {
-  ArrowDownCircleIcon,
-  ArrowPathIcon,
-  ArrowUpCircleIcon,
-  EllipsisHorizontalIcon,
-  ArrowLongLeftIcon
-
-
-} from '@heroicons/react/20/solid'
-
+import { useState } from 'react'
+import { ArrowLongLeftIcon } from '@heroicons/react/20/solid'
 import { Link } from "react-router-dom";
 
 const statuses = {
@@ -21,9 +11,9 @@ const statuses = {
 const posts = [
     {
       id: 1,
-      title: 'Boost your conversion rate',
+      title: 'آموزش ری اکت (React JS)',
       description:
-        'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+        'آموزش رایگان React سعی دارد تا تمام مفاهیم اساسی و اولیه React را به صورت رایگان در اختیار همگان قرار دهد. این آموزش مانند دیگر آموزش‌های ما به صورت پروژه-محور خواهد بود.',
       imageUrl:
         '/src/assets/images/react.jpg',
       date: 'Mar 16, 2020',
@@ -32,27 +22,25 @@ const posts = [
     },
     {
         id: 2,
-        title: 'Boost your conversion rate',
-        href: '#',
+        title: 'آموزش پیشرفته React',
         description:
-          'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+          'آموزش پیشرفته React دوره‌ای است که در آن شما به صورت عمیق‌تر و حرفه‌ای‌تر با ویژگی React آشنا می‌شوید و از آن‌ها به صورت عملی در پروژه‌های خود استفاده می‌کنید.',
         imageUrl:
             '/src/assets/images/react-pro.jpg',  
         date: 'Mar 16, 2020',
         datetime: '2020-03-16',
-        category: { title: 'Marketing', href: '#' },
+        category: { title: 'React', href: '#' },
       },
       {
         id: 3,
-        title: 'Boost your conversion rate',
-        href: '#',
+        title: 'آموزش Redux',
         description:
-          'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+          'در طول دوره آموزش redux (ریداکس) سعی می‌کنیم به شکل کامل و کاربردی روش استفاده از کتابخانه redux برای حل مشکل مدیریت stateها را به شما آموزش دهیم.',
         imageUrl:
         '/src/assets/images/redux.jpg',
         date: 'Mar 16, 2020',
         datetime: '2020-03-16',
-        category: { title: 'Marketing', href: '#' },
+        category: { title: 'React', href: '#' },
         
       },
       
@@ -67,16 +55,16 @@ export default function Home() {
 
   return (
     <>
-      <main>
-        <div className="space-y-16 py-16 xl:space-y-20">
+      <main className='bg-gray-800'>
+        <div className="space-y-16 xl:space-y-20 py-15 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
 
               <div className="flex items-center justify-between">
-                <h2 className="text-3xl font-bold leading-7 text-gray-900"> مقالات</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold leading-7 text-gray-50"> آخرین مقالات</h2>
                 <Link 
                     to={`/posts`} 
-                    className="flex justify-center leading-2 justify-items-center content-center text-sm font-semibold leading-10 text-indigo-600 hover:text-indigo-500"
+                    className="flex justify-center leading-2 justify-items-center content-center text-sm font-semibold leading-10 text-blue-400 hover:text-blue-300"
                 >
                          مشاهده همه مقالات
                         <ArrowLongLeftIcon className="h-6 w-6" aria-hidden="true" />
@@ -85,7 +73,7 @@ export default function Home() {
               
               <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {posts.map((post) => (
-              <article key={post.id} className="flex flex-col items-start justify-between">
+              <article key={post.id} className="flex flex-col items-start bg-gray-900 p-6 rounded-xl">
                 <div className="relative w-full">
                 <Link to={`/posts/`+post.id} className="font-semibold leading-6">
                   <img
@@ -98,18 +86,18 @@ export default function Home() {
                 </div>
                 <div className="max-w-xl">
                   <div className="mt-8 flex items-center gap-x-4 text-xs">
-                    <time dateTime={post.datetime} className="text-gray-500">
+                    <time dateTime={post.datetime} className="text-gray-50">
                       {post.date}
                     </time>
                     <a
                       href={post.category.href}
-                      className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                      className="relative z-10 rounded-full bg-gray-800 px-3 py-1.5 font-medium text-gray-50 hover:bg-gray-700"
                     >
                       {post.category.title}
                     </a>
                   </div>
                   <div className="group relative">
-                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-50 group-hover:text-blue-400">
                     <Link to={`/posts/`+post.id} className="font-semibold leading-6">
                         {post.title}    
                     </Link> 

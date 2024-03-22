@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon, RocketLaunchIcon } from '@heroicons/react/24/outline'
 import { Link, NavLink } from "react-router-dom";
  
 
@@ -24,9 +24,9 @@ export default function Example() {
     <header className="bg-gray-900">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="" />
+            <RocketLaunchIcon className='h-8 w-auto text-red-500'/>
           </a>
         </div>
         <div className="flex lg:hidden">

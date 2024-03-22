@@ -24,7 +24,7 @@ export default function ContactUs() {
   const [agreed, setAgreed] = useState(false)
 
   return (
-    <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div className="bg-gray-800 px-6 py-20 sm:py-20 lg:px-8">
       <div
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
@@ -38,8 +38,8 @@ export default function ContactUs() {
         />
       </div>
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"> درباره ما </h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-50 sm:text-4xl"> درباره ما </h2>
+        <p className="mt-2 text-lg leading-8 text-gray-50 text-justify bg-gray-900 p-6 rounded-xl">
         راکت یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران است که همیشه تلاش کرده تا بتواند جدیدترین و بروزترین مقالات و دوره‌های آموزشی را در اختیار علاقه‌مندان ایرانی قرار دهد. تبدیل کردن برنامه نویسان ایرانی به بهترین برنامه نویسان جهان هدف ماست.
         </p>
       </div>

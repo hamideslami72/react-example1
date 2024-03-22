@@ -1,88 +1,132 @@
-const posts = [
+import { useParams } from "react-router-dom";
+
+  const posts = [
     {
       id: 1,
-      title: 'Boost your conversion rate',
-      href: '#',
+      title: 'آموزش ری اکت (React JS)',
       description:
-        'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.',
+        'آموزش رایگان React سعی دارد تا تمام مفاهیم اساسی و اولیه React را به صورت رایگان در اختیار همگان قرار دهد. این آموزش مانند دیگر آموزش‌های ما به صورت پروژه-محور خواهد بود.',
       imageUrl:
-        'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
+        '/src/assets/images/react.jpg',
       date: 'Mar 16, 2020',
       datetime: '2020-03-16',
-      category: { title: 'Marketing', href: '#' },
-      author: {
-        name: 'Michael Foster',
-        role: 'Co-Founder / CTO',
-        href: '#',
-        imageUrl:
-          'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
+      category: { title: 'React', href: '#' },
     },
-    // More posts...
+    {
+        id: 2,
+        title: 'آموزش پیشرفته React',
+        description:
+          'آموزش پیشرفته React دوره‌ای است که در آن شما به صورت عمیق‌تر و حرفه‌ای‌تر با ویژگی React آشنا می‌شوید و از آن‌ها به صورت عملی در پروژه‌های خود استفاده می‌کنید.',
+        imageUrl:
+            '/src/assets/images/react-pro.jpg',  
+        date: 'Mar 16, 2020',
+        datetime: '2020-03-16',
+        category: { title: 'React', href: '#' },
+      },
+      {
+        id: 3,
+        title: 'آموزش Redux',
+        description:
+          'در طول دوره آموزش redux (ریداکس) سعی می‌کنیم به شکل کامل و کاربردی روش استفاده از کتابخانه redux برای حل مشکل مدیریت stateها را به شما آموزش دهیم.',
+        imageUrl:
+        '/src/assets/images/redux.jpg',
+        date: 'Mar 16, 2020',
+        datetime: '2020-03-16',
+        category: { title: 'React', href: '#' },
+        
+      },
+      {
+        id: 4,
+        title: 'بهینه سازی در React ',
+        description:
+          'دوره بهینه سازی در React یک دوره ویژه برای React کارهاست تا کدبهتری با سرعت بالاتری در React بنویسند، در قالب این دوره به React کار بهتری تبدیل خواهید شد',
+        imageUrl:
+        '/src/assets/images/react4.jpg',
+        date: 'Mar 16, 2020',
+        datetime: '2020-03-16',
+        category: { title: 'React', href: '#' },
+        
+      },
+      {
+        id: 5,
+        title: 'آموزش تایپ اسکریپت در React ',
+        description:
+          'در طول دوره آموزش تایپ اسکریپت در React سعی داریم روش استفاده درست از تایپ اسکریپت در فریمورک React.js را قدم به قدم به شما آموزش دهیم. یادگیری این مهارت در نهایت کمک می‌کند اپلیکیشن‌های بسیار قدرتمند‌تری در React.js ایجاد کنید.',
+        imageUrl:
+        '/src/assets/images/react5.jpg',
+        date: 'Mar 16, 2020',
+        datetime: '2020-03-16',
+        category: { title: 'React', href: '#' },
+        
+      },
+      {
+        id: 6,
+        title: 'کتابخانه‌های پرکاربرد React',
+        description:
+          'هدف اصلی که دوره آموزشی کتابخانه‌های پر کاربرد React دنبال می‌کند آشنا کردن شما با کتابخانه‌هایی محبوب و پر استفاده React.js است. کتابخانه‌هایی که اگر در کنار React مورد استفاده قرار بگیرد می‌تواند سطح کاربری React را افزایش داده و در فرایند ساخت پروژه‌های بزرگ استفاده شود.',
+        imageUrl:
+        '/src/assets/images/react6.jpg',
+        date: 'Mar 16, 2020',
+        datetime: '2020-03-16',
+        category: { title: 'React', href: '#' },
+        
+      },
+      
   ]
-  
+
   export default function Post() {
+
+    const { id } = useParams();
+    const post = posts.find((post) => post.id == id);
+
+    console.log(post)
+
     return (
-      <div className="bg-white py-10 sm:py-15">
+      <div className="bg-gray-800 py-15 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:max-w-4xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
-              Learn how to grow your business with our expert advice.
-            </p>
-            <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-              {posts.map((post) => (
-                <article key={post.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
-                  <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                    <img
-                      src={post.imageUrl}
-                      alt=""
-                      className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
-                    />
-                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-x-4 text-xs">
-                      <time dateTime={post.datetime} className="text-gray-500">
-                        {post.date}
-                      </time>
-                      <a
-                        href={post.category.href}
-                        className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                      >
-                        {post.category.title}
-                      </a>
+          <div className="mx-auto">
+            
+              
+                <div className="bg-gray-900 p-6 rounded-2xl">
+                  <article key={post.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
+                    <div className="relative w-full lg:w-1/3">
+                      <img
+                        src={post.imageUrl}
+                        alt=""
+                        className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
+                      />
+                      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-500" />
                     </div>
-                    <div className="group relative max-w-xl">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                        <a href={post.href}>
-                          <span className="absolute inset-0" />
-                          {post.title}
+                    <div>
+                      <div className="flex items-center gap-x-4 text-xs">
+                        <time dateTime={post.datetime} className="text-gray-50">
+                          {post.date}
+                        </time>
+                        <a
+                          href={post.category.href}
+                          className="relative z-10 rounded-full bg-gray-800 px-3 py-1.5 font-medium text-gray-50 hover:bg-gray-100"
+                        >
+                          {post.category.title}
                         </a>
-                      </h3>
-                      <p className="mt-5 text-sm leading-6 text-gray-600">{post.description}</p>
-                    </div>
-                    <div className="mt-6 flex border-t border-gray-900/5 pt-6">
-                      <div className="relative flex items-center gap-x-4">
-                        <img src={post.author.imageUrl} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
-                        <div className="text-sm leading-6">
-                          <p className="font-semibold text-gray-900">
-                            <a href={post.author.href}>
-                              <span className="absolute inset-0" />
-                              {post.author.name}
-                            </a>
-                          </p>
-                          <p className="text-gray-600">{post.author.role}</p>
-                        </div>
                       </div>
+                      <div className="group relative max-w-xl">
+                        <h3 className="mt-3 text-3xl font-semibold leading-6 text-gray-50">
+                          <a href={post.href}>
+                            <span className="absolute inset-0" />
+                            {post.title}
+                          </a>
+                        </h3>
+                        <p className="mt-5 text-xl leading-7 text-gray-50">{post.description}</p>
+                      </div>
+                      
                     </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                </div>
+
             </div>
           </div>
         </div>
-      </div>
+
     )
   }
   
